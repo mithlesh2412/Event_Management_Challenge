@@ -1,50 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EventOS Dashboard Prototype</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+EventHub 🗓️
 
-    <div class="dashboard-container">
-        <aside class="sidebar">
-            <div class="logo">EventOS</div>
-            <nav>
-                <a href="#" class="active">Dashboard</a>
-                <a href="#">Tasks</a>
-                <a href="#">Vendors</a>
-                <a href="#">Attendees</a>
-            </nav>
-        </aside>
+A full-featured web application designed to streamline the process of creating, managing, and discovering events.
 
-        <main class="main-content">
-            <h1>Unified Command Center</h1>
-            
-            <div class="ehs-card-grid">
-                
-                <section class="card ehs-card">
-                    <h2>Event Health Score (EHS)</h2>
-                    <div id="ehsScoreDisplay" class="ehs-score">--/100</div>
-                    
-                    <hr>
-                    
-                    <h3>Actionable Alerts</h3>
-                    <ul id="alertList" class="alert-list">
-                        <li><span class="placeholder">Loading alerts...</span></li>
-                    </ul>
-                </section>
-
-                <section class="card secondary-card">
-                    <h2>Task Engine Snapshot</h2>
-                    <p>5 Critical tasks pending review.</p>
-                </section>
-
-            </div>
-        </main>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+About The Project
+EventHub is your ultimate solution for seamless event management. Whether you're an organizer planning your next big conference or a user looking for exciting local events, our platform provides all the tools you need. This application simplifies event creation, ticketing, and discovery, making it easier for people to connect and share experiences.
