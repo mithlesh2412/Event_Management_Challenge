@@ -16,5 +16,8 @@
     "url": "https://github.com/chndnshrma/Event_Management_Challenge/issues"
   },
   "homepage": "https://github.com/chndnshrma/Event_Management_Challenge#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
