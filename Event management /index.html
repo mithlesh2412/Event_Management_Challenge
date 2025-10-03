@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventify - Your Premier Event Management Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/000000/FFFFFF?text=Elegant+Event');
+            background-size: cover;
+            background-position: center;
+        }
+        .header-scrolled {
+            background-color: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .testimonial-card {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-white tracking-wider">Eventify</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#services" class="hover:text-indigo-400 transition-colors">Services</a>
+                <a href="#gallery" class="hover:text-indigo-400 transition-colors">Gallery</a>
+                <a href="#testimonials" class="hover:text-indigo-400 transition-colors">Testimonials</a>
+                <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded-lg transition-colors">Contact Us</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
+        </nav>
+         <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <a href="#services" class="block py-2 px-4 text-sm hover:bg-gray-700">Services</a>
+            <a href="#gallery" class="block py-2 px-4 text-sm hover:bg-gray-700">Gallery</a>
+            <a href="#testimonials" class="block py-2 px-4 text-sm hover:bg-gray-700">Testimonials</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700">Contact Us</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg h-screen flex items-center justify-center text-center">
+            <div class="max-w-3xl mx-auto px-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-on-scroll">Creating Unforgettable Experiences</h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 animate-on-scroll" style="transition-delay: 200ms;">From intimate gatherings to grand celebrations, we bring your vision to life with passion, precision, and flair.</p>
+                <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 animate-on-scroll" style="transition-delay: 400ms;">Plan Your Event</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2 animate-on-scroll">Our Expertise</h2>
+                    <p class="text-lg text-gray-400 animate-on-scroll" style="transition-delay: 200ms;">We handle every detail, so you can enjoy the moment.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll">
+                        <div class="mb-4 text-indigo-400">
+                            <i data-lucide="building-2" class="h-12 w-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Corporate Events</h3>
+                        <p class="text-gray-400">Conferences, seminars, and product launches that make a statement and drive results.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll" style="transition-delay: 200ms;">
+                        <div class="mb-4 text-indigo-400">
+                            <i data-lucide="heart" class="h-12 w-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Weddings & Socials</h3>
+                        <p class="text-gray-400">Crafting beautiful, bespoke weddings and social gatherings that tell your unique story.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll" style="transition-delay: 400ms;">
+                         <div class="mb-4 text-indigo-400">
+                            <i data-lucide="mic" class="h-12 w-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Concerts & Live Shows</h3>
+                        <p class="text-gray-400">End-to-end management for live performances, ensuring a flawless show for artists and fans.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2 animate-on-scroll">Moments We've Created</h2>
+                    <p class="text-lg text-gray-400 animate-on-scroll" style="transition-delay: 200ms;">A glimpse into the magic we bring to every event.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/6366F1/FFFFFF?text=Wedding" alt=""></div>
+                        <div class="animate-on-scroll" style="transition-delay: 200ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/10B981/FFFFFF?text=Concert" alt=""></div>
+                    </div>
+                     <div class="grid gap-4">
+                        <div class="animate-on-scroll" style="transition-delay: 300ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/F59E0B/FFFFFF?text=Conference" alt=""></div>
+                        <div class="animate-on-scroll" style="transition-delay: 400ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/EC4899/FFFFFF?text=Gala" alt=""></div>
+                    </div>
+                     <div class="grid gap-4">
+                        <div class="animate-on-scroll" style="transition-delay: 500ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/EF4444/FFFFFF?text=Launch" alt=""></div>
+                        <div class="animate-on-scroll" style="transition-delay: 600ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/3B82F6/FFFFFF?text=Party" alt=""></div>
+                    </div>
+                     <div class="grid gap-4">
+                        <div class="animate-on-scroll" style="transition-delay: 700ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/8B5CF6/FFFFFF?text=Celebration" alt=""></div>
+                        <div class="animate-on-scroll" style="transition-delay: 800ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/14B8A6/FFFFFF?text=Expo" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2 animate-on-scroll">What Our Clients Say</h2>
+                    <p class="text-lg text-gray-400 animate-on-scroll" style="transition-delay: 200ms;">Their success stories are our greatest achievements.</p>
+                </div>
+                <div class="relative w-full max-w-3xl mx-auto overflow-hidden animate-on-scroll">
+                    <div id="testimonial-slider" class="flex">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card flex-shrink-0 w-full">
+                            <div class="bg-gray-800 p-8 rounded-xl text-center">
+                                <p class="text-xl italic text-gray-300 mb-6">"Eventify transformed our annual conference. The attention to detail was impeccable, and our attendees were blown away. We couldn't have done it without them!"</p>
+                                <img src="https://placehold.co/80x80/FFFFFF/000000?text=A.D." alt="Client Avatar" class="w-16 h-16 rounded-full mx-auto mb-2 border-2 border-indigo-400">
+                                <h4 class="font-bold text-lg">Alex Doe</h4>
+                                <p class="text-gray-400">CEO, Tech Innovators</p>
+                            </div>
+                        </div>
+                        <!-- Testimonial 2 -->
+                         <div class="testimonial-card flex-shrink-0 w-full">
+                            <div class="bg-gray-800 p-8 rounded-xl text-center">
+                                <p class="text-xl italic text-gray-300 mb-6">"The most beautiful wedding, perfectly executed. The team was professional, creative, and made our special day completely stress-free. Highly recommended!"</p>
+                                <img src="https://placehold.co/80x80/FFFFFF/000000?text=J.S." alt="Client Avatar" class="w-16 h-16 rounded-full mx-auto mb-2 border-2 border-indigo-400">
+                                <h4 class="font-bold text-lg">Jessica & Mark</h4>
+                                <p class="text-gray-400">Newlyweds</p>
+                            </div>
+                        </div>
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card flex-shrink-0 w-full">
+                            <div class="bg-gray-800 p-8 rounded-xl text-center">
+                                <p class="text-xl italic text-gray-300 mb-6">"Our product launch was a massive success, thanks to Eventify. They understood our brand and delivered an event that generated significant buzz."</p>
+                                <img src="https://placehold.co/80x80/FFFFFF/000000?text=S.L." alt="Client Avatar" class="w-16 h-16 rounded-full mx-auto mb-2 border-2 border-indigo-400">
+                                <h4 class="font-bold text-lg">Sarah Lee</h4>
+                                <p class="text-gray-400">Marketing Director, Creative Co.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="prevBtn" class="absolute top-1/2 left-0 sm:-left-16 transform -translate-y-1/2 bg-gray-700 hover:bg-indigo-600 p-2 rounded-full transition-colors">
+                        <i data-lucide="chevron-left" class="h-6 w-6"></i>
+                    </button>
+                    <button id="nextBtn" class="absolute top-1/2 right-0 sm:-right-16 transform -translate-y-1/2 bg-gray-700 hover:bg-indigo-600 p-2 rounded-full transition-colors">
+                        <i data-lucide="chevron-right" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2 animate-on-scroll">Let's Create Something Amazing</h2>
+                    <p class="text-lg text-gray-400 animate-on-scroll" style="transition-delay: 200ms;">Get in touch to discuss your next event.</p>
+                </div>
+                <div class="max-w-xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg animate-on-scroll">
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-300 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow">
+                        </div>
+                         <div class="mb-4">
+                            <label for="email" class="block text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-300 mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="facebook" class="h-6 w-6"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="twitter" class="h-6 w-6"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="instagram" class="h-6 w-6"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="linkedin" class="h-6 w-6"></i></a>
+            </div>
+            <p>&copy; 2024 Eventify. All rights reserved. Crafted with passion.</p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu on link click
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Animate on scroll
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Testimonial Slider
+            const slider = document.getElementById('testimonial-slider');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            let currentIndex = 0;
+            const totalTestimonials = testimonials.length;
+
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalTestimonials;
+                updateSlider();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
+                updateSlider();
+            });
+            
+            // Auto-slide testimonials
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalTestimonials;
+                updateSlider();
+            }, 5000);
+
+        });
+    </script>
+</body>
+</html>

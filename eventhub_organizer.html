@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub Organizer Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Base styles matching the deep navy background */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #160F29; 
+            color: #F0F0F0;
+        }
+        /* Sidebar styles matching the provided image */
+        .sidebar {
+            width: 250px;
+            background-color: #241A41; 
+            min-height: 100vh;
+            padding: 1.5rem 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        }
+        .sidebar-item {
+            padding: 0.75rem 1.5rem;
+            color: #C0C0D0;
+            font-weight: 500;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .sidebar-item:hover {
+            background-color: #382C6A;
+            color: #FFFFFF;
+        }
+        .sidebar-item.active {
+            background-color: #382C6A;
+            color: #A78BFA;
+            border-left: 3px solid #6D28D9; 
+        }
+
+        /* Main Content styles */
+        .main-content {
+            flex-grow: 1;
+            padding: 2rem 3rem;
+        }
+        .card {
+            background-color: #241A41;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .metric-value { font-size: 2.5rem; font-weight: 700; }
+        .metric-label { font-size: 0.875rem; color: #A0A0B0; }
+        .tab-button.active { border-bottom: 2px solid #A78BFA; color: #A78BFA; font-weight: 600; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body class="flex">
+
+    <aside class="sidebar flex flex-col justify-between fixed h-full">
+        <div>
+            <div class="px-6 mb-10">
+                <span class="text-2xl font-extrabold text-white">EventHub<span class="text-[#A78BFA]">.ai</span></span>
+            </div>
+            
+            <nav class="space-y-1">
+                <a href="#" class="sidebar-item active flex items-center">
+                    Dashboard
+                </a>
+                <a href="#" class="sidebar-item flex items-center" onclick="alert('Redirecting to Event Management Module')">
+                    Events
+                </a>
+                <a href="#" class="sidebar-item flex items-center" onclick="alert('Redirecting to Budget Tracker Module')">
+                    Budget
+                </a>
+                <a href="#" class="sidebar-item flex items-center" onclick="alert('Redirecting to Attendee Registration Module')">
+                    Attendees
+                </a>
+                <a href="#" class="sidebar-item flex items-center" onclick="alert('Redirecting to Vendor CRM Module')">
+                    Vendors
+                </a>
+                <a href="#" class="sidebar-item flex items-center" onclick="alert('Redirecting to Advanced Analytics')">
+                    Analytics
+                </a>
+                <a href="#" class="sidebar-item flex items-center" onclick="alert('Redirecting to Global Settings')">
+                    Settings
+                </a>
+            </nav>
+        </div>
+        
+        <div class="mt-auto pt-6 px-6">
+            <a href="#" class="text-xs font-medium text-[#A78BFA] block mb-2 hover:underline" onclick="alert('Opening Help Center / Live Support')">
+                Help & Support
+            </a>
+            <a href="index.html" class="text-xs font-medium text-red-400 block hover:underline" onclick="alert('Logging out and returning to main page.')">
+                Logout
+            </a>
+        </div>
+    </aside>
+
+    <div class="main-content flex flex-col ml-[250px]">
+        <header class="flex justify-between items-center pb-6 mb-8">
+            <h1 class="text-4xl font-extrabold text-white">Dashboard</h1>
+            <div class="flex items-center space-x-4">
+                <button class="p-2 rounded-full bg-[#6D28D9] hover:bg-indigo-700 transition-colors" onclick="alert('Showing Notification Center')">
+                    <i data-lucide="bell" class="h-5 w-5 text-white"></i>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="more-vertical" class="h-6 w-6 text-white"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="card flex flex-col justify-between cursor-pointer" onclick="alert('AI Health Check Details: Score is 78% due to high vendor contract backlog.')">
+                <div class="metric-label flex items-center mb-1"><i data-lucide="shield-check" class="h-4 w-4 mr-1 text-green-400"></i> Event Health Score</div>
+                <div class="metric-value text-green-400">78%</div>
+                <div class="text-xs text-green-400">Low Risk - AI Prediction</div>
+            </div>
+            <div class="card flex flex-col justify-between cursor-pointer" onclick="alert('Budget Details: Click to see individual line item expenses.')">
+                <div class="metric-label flex items-center mb-1"><i data-lucide="dollar-sign" class="h-4 w-4 mr-1 text-[#A78BFA]"></i> Budget Used (of $65k)</div>
+                <div class="metric-value text-white">$42,100</div>
+                <div class="text-xs text-yellow-400">65% Target Used</div>
+            </div>
+            <div class="card flex flex-col justify-between cursor-pointer" onclick="alert('Attendee Module: Click to filter by ticket type and source.')">
+                <div class="metric-label flex items-center mb-1"><i data-lucide="users-round" class="h-4 w-4 mr-1 text-pink-400"></i> Registered Attendees</div>
+                <div class="metric-value text-white">892</div>
+                <div class="text-xs text-pink-400">89% of Capacity</div>
+            </div>
+            <div class="card flex flex-col justify-between cursor-pointer" onclick="alert('Sponsor Portal View: Click to see lead capture rates by booth.')">
+                <div class="metric-label flex items-center mb-1"><i data-lucide="award" class="h-4 w-4 mr-1 text-yellow-400"></i> Sponsor ROI Score</div>
+                <div class="metric-value text-white">8.2/10</div>
+                <div class="text-xs text-yellow-400">On Track for Renewal</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <div class="lg:col-span-1 card">
+                <h2 class="text-xl font-bold mb-4 flex items-center text-red-400"><i data-lucide="alert-octagon" class="h-5 w-5 mr-2"></i> CRITICAL ALERTS</h2>
+                <ul class="space-y-4">
+                    <li class="p-2 -m-2 rounded cursor-pointer hover:bg-[#382C6A]" onclick="alert('Action: Redirecting to Legal Contracts Module to Sign.')">
+                        <div class="font-medium text-lg text-red-400 flex justify-between">Contract Pending 
+                            <i data-lucide="chevron-right" class="h-5 w-5"></i>
+                        </div>
+                        <p class="text-gray-400 text-sm">Catering: Due today @ 3 PM.</p>
+                    </li>
+                    <li class="p-2 -m-2 rounded cursor-pointer hover:bg-[#382C6A]" onclick="alert('Action: Redirecting to Registration Settings to review attendee cap.')">
+                        <div class="font-medium text-lg text-yellow-400 flex justify-between">Capacity Warning 
+                            <i data-lucide="chevron-right" class="h-5 w-5"></i>
+                        </div>
+                        <p class="text-gray-400 text-sm">89% full. Close registration ASAP.</p>
+                    </li>
+                    <li class="p-2 -m-2 rounded cursor-pointer hover:bg-[#382C6A]" onclick="alert('Action: Opening Live Coordination Nexus (Chat Panel).')">
+                        <div class="font-medium text-lg text-[#A78BFA] flex justify-between">Vendor Chat Unread (3) 
+                            <i data-lucide="chevron-right" class="h-5 w-5"></i>
+                        </div>
+                        <p class="text-gray-400 text-sm">From A/V Team regarding logistics.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-2 card">
+                <h2 class="text-xl font-bold mb-4 flex items-center"><i data-lucide="list-checks" class="h-5 w-5 mr-2 text-sky-400"></i> Coordination Nexus</h2>
+                
+                <div class="border-b border-gray-700 mb-4">
+                    <button class="tab-button p-2 mr-4 transition-colors active" data-tab="overdue">Overdue (3)</button>
+                    <button class="tab-button p-2 mr-4 transition-colors" data-tab="upcoming">Upcoming (12)</button>
+                    <button class="tab-button p-2 transition-colors" data-tab="vendor">Vendor Status</button>
+                </div>
+
+                <div id="overdue" class="tab-content active space-y-3">
+                    <div class="flex items-center text-red-400 cursor-pointer hover:bg-gray-700/50 p-2 -m-2 rounded" onclick="alert('Task Cleared: Final Speaker Headshots. Status updated.')">
+                        <i data-lucide="x-circle" class="h-5 w-5 mr-3"></i> Final Speaker Headshots Collection 
+                        <span class="ml-auto text-sm text-gray-400">Due: 2 Days Ago</span>
+                    </div>
+                    <div class="flex items-center text-red-400 cursor-pointer hover:bg-gray-700/50 p-2 -m-2 rounded" onclick="alert('Task Cleared: Upload Venue Insurance Docs. Status updated.')">
+                        <i data-lucide="x-circle" class="h-5 w-5 mr-3"></i> Upload Venue Insurance Docs 
+                        <span class="ml-auto text-sm text-gray-400">Due: Yesterday</span>
+                    </div>
+                </div>
+
+                <div id="upcoming" class="tab-content space-y-3">
+                    <div class="flex items-center text-slate-300">
+                        <i data-lucide="clock" class="h-5 w-5 mr-3 text-yellow-500"></i> Final Catering Menu Selection <span class="ml-auto text-sm text-gray-400">Due: Mon, Oct 7</span>
+                    </div>
+                </div>
+                
+                <div id="vendor" class="tab-content">
+                    <table class="w-full text-left table-auto">
+                        <thead>
+                            <tr class="text-gray-400 uppercase text-xs">
+                                <th class="py-2 pr-4">Vendor</th>
+                                <th class="py-2 px-4">Status</th>
+                                <th class="py-2 px-4">Payment</th>
+                                <th class="py-2 pl-4">Contact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700/50 last:border-b-0">
+                                <td class="py-3 pr-4 font-medium">Gourmet Catering</td>
+                                <td class="py-3 px-4"><span class="bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-2.5 py-0.5 rounded-full">Contract Pending</span></td>
+                                <td class="py-3 px-4">0% Paid</td>
+                                <td class="py-3 pl-4 text-[#A78BFA] cursor-pointer" onclick="alert('Opening Live Coordination Chat with Gourmet Catering...')"><i data-lucide="message-square" class="h-4 w-4 inline-block align-middle mr-1"></i> Chat</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+
+            // Tab Switching Logic
+            const tabs = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetId = tab.dataset.tab;
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    tab.classList.add('active');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

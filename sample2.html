@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventFlow Organizer Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0F172A; /* Slate 900 */
+            color: #E2E8F0; /* Slate 200 */
+        }
+        .sidebar {
+            width: 280px;
+            background-color: #1E293B; /* Slate 800 */
+        }
+        .main-content {
+            margin-left: 280px;
+        }
+        .card {
+            background-color: #1E293B; /* Slate 800 */
+            border-radius: 0.75rem; /* Rounded-xl */
+            padding: 1.5rem; /* p-6 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+        }
+        .metric-value {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+        }
+        .metric-label {
+            font-size: 0.875rem; /* text-sm */
+            color: #94A3B8; /* Slate 400 */
+        }
+        .progress-bar-container {
+            height: 8px;
+            background-color: #475569; /* Slate 600 */
+            border-radius: 9999px; /* rounded-full */
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #6366F1; /* Indigo 500 */
+            border-radius: 9999px;
+            transition: width 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex h-screen">
+        <aside class="sidebar fixed top-0 left-0 h-full p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center mb-10">
+                    <i data-lucide="zap" class="h-8 w-8 text-indigo-500 mr-2"></i>
+                    <span class="text-3xl font-extrabold text-white">EventFlow<span class="text-indigo-400">.ai</span></span>
+                </div>
+                <nav>
+                    <a href="#" class="flex items-center p-3 rounded-lg text-indigo-400 bg-indigo-900/30 font-medium mb-2 hover:bg-indigo-900/50 transition-colors">
+                        <i data-lucide="layout-dashboard" class="h-5 w-5 mr-3"></i> Dashboard
+                    </a>
+                    <a href="#" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-700 font-medium mb-2 transition-colors">
+                        <i data-lucide="calendar-check" class="h-5 w-5 mr-3"></i> Events
+                    </a>
+                    <a href="#" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-700 font-medium mb-2 transition-colors">
+                        <i data-lucide="wallet" class="h-5 w-5 mr-3"></i> Budget
+                    </a>
+                    <a href="#" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-700 font-medium mb-2 transition-colors">
+                        <i data-lucide="users-round" class="h-5 w-5 mr-3"></i> Attendees
+                    </a>
+                    <a href="#" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-700 font-medium mb-2 transition-colors">
+                        <i data-lucide="handshake" class="h-5 w-5 mr-3"></i> Vendors
+                    </a>
+                    <a href="#" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-700 font-medium mb-2 transition-colors">
+                        <i data-lucide="bar-chart-2" class="h-5 w-5 mr-3"></i> Analytics
+                    </a>
+                    <a href="#" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-700 font-medium mb-2 transition-colors">
+                        <i data-lucide="settings" class="h-5 w-5 mr-3"></i> Settings
+                    </a>
+                </nav>
+            </div>
+            <div class="mt-8">
+                <div class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-700 transition-colors">
+                    <i data-lucide="help-circle" class="h-5 w-5 mr-3"></i> Help & Support
+                </div>
+                <div class="flex items-center p-3 rounded-lg text-red-400 hover:bg-slate-700 transition-colors mt-2">
+                    <i data-lucide="log-out" class="h-5 w-5 mr-3"></i> Logout
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content flex-1 p-8 overflow-auto">
+            <header class="flex justify-between items-center mb-8">
+                <h1 class="text-4xl font-extrabold text-white">Dashboard</h1>
+                <div class="flex items-center space-x-4">
+                    <button class="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors">
+                        <i data-lucide="bell" class="h-5 w-5 text-slate-300"></i>
+                    </button>
+                    <button class="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors">
+                        <i data-lucide="message-square" class="h-5 w-5 text-slate-300"></i>
+                    </button>

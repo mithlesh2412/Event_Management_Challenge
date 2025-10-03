@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventFlow - Unified Event Intelligence Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-bg {
+            /* Updated image/text for a platform/dashboard feel */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1920x1080/0F172A/94A3B8?text=Integrated+Dashboard');
+            background-size: cover;
+            background-position: center;
+        }
+        .header-scrolled {
+            background-color: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .testimonial-card {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-white tracking-wider">EventFlow<span class="text-indigo-500">.ai</span></a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#features" class="hover:text-indigo-400 transition-colors">Features</a>
+                <a href="#solutions" class="hover:text-indigo-400 transition-colors">Solutions</a>
+                <a href="#results" class="hover:text-indigo-400 transition-colors">Results</a>
+                <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded-lg transition-colors">Request Demo</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
+        </nav>
+         <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <a href="#features" class="block py-2 px-4 text-sm hover:bg-gray-700">Features</a>
+            <a href="#solutions" class="block py-2 px-4 text-sm hover:bg-gray-700">Solutions</a>
+            <a href="#results" class="block py-2 px-4 text-sm hover:bg-gray-700">Results</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700">Request Demo</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-bg h-screen flex items-center justify-center text-center">
+            <div class="max-w-4xl mx-auto px-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-on-scroll">End the 10-Tool Chaos. Start the <span class="text-indigo-400">EventFlow</span>.</h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 animate-on-scroll" style="transition-delay: 200ms;">**45% of event failures are due to coordination breakdowns.** EventFlow is the **Unified AI Platform** that integrates planning, execution, and analysis into one seamless experience.</p>
+                <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 animate-on-scroll" style="transition-delay: 400ms;">See the Demo</a>
+                <p class="text-sm text-gray-400 mt-4">For Organizers, Attendees, Sponsors, and Vendors.</p>
+            </div>
+        </section>
+
+        <section id="features" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2 animate-on-scroll">Why EventFlow? Unified Platform Features</h2>
+                    <p class="text-lg text-gray-400 animate-on-scroll" style="transition-delay: 200ms;">One system. Zero data silos. Total control.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll">
+                        <div class="mb-4 text-indigo-400">
+                            <i data-lucide="database" class="h-12 w-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Unified Data Hub</h3>
+                        <p class="text-gray-400">A single source of truth for all registration, budget, and task data. **Eliminate 9 tools and spreadsheet chaos.**</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll" style="transition-delay: 200ms;">
+                        <div class="mb-4 text-indigo-400">
+                            <i data-lucide="zap" class="h-12 w-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">AI Risk & Budget Guard</h3>
+                        <p class="text-gray-400">Predictive AI calculates an 'Event Health Score' and instantly alerts organizers to budget overruns or coordination risks *before* they happen.</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll" style="transition-delay: 400ms;">
+                         <div class="mb-4 text-indigo-400">
+                            <i data-lucide="message-square-text" class="h-12 w-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Live Coordination Nexus</h3>
+                        <p class="text-gray-400">Role-based, context-aware communication channels for organizers, vendors, and staff—replacing email chains and WhatsApp threads.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2 animate-on-scroll">Transforming the Experience for Everyone</h2>
+                    <p class="text-lg text-gray-400 animate-on-scroll" style="transition-delay: 200ms;">Dedicated portals for every stakeholder.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-indigo-500/50 transition-shadow duration-300 animate-on-scroll">
+                        <div class="mb-3 text-indigo-400"><i data-lucide="layout-dashboard" class="h-8 w-8"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Organizer Dashboard</h3>
+                        <p class="text-gray-400 text-sm">Real-time status of all tasks, budget, and risk scores. Manage contracts and permits in one place.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-indigo-500/50 transition-shadow duration-300 animate-on-scroll" style="transition-delay: 150ms;">
+                        <div class="mb-3 text-indigo-400"><i data-lucide="user-check" class="h-8 w-8"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Personalized Attendee App</h3>
+                        <p class="text-gray-400 text-sm">AI-driven itineraries, gamification, and indoor wayfinding for a high-engagement experience.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-indigo-500/50 transition-shadow duration-300 animate-on-scroll" style="transition-delay: 300ms;">
+                        <div class="mb-3 text-indigo-400"><i data-lucide="trending-up" class="h-8 w-8"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Sponsor ROI Portal</h3>
+                        <p class="text-gray-400 text-sm">Live metrics on lead captures, booth traffic, and digital impressions. Prove and maximize event ROI instantly.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-indigo-500/50 transition-shadow duration-300 animate-on-scroll" style="transition-delay: 450ms;">
+                        <div class="mb-3 text-indigo-400"><i data-lucide="hard-hat" class="h-8 w-8"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Vendor Coordination App</h3>
+                        <p class="text-gray-400 text-sm">Digital checklists, just-in-time task alerts, and digital sign-off. Eliminates coordination nightmares.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2 animate-on-scroll">The EventFlow Results</h2>
+                    <p class="text-lg text-gray-400 animate-on-scroll" style="transition-delay: 200ms;">Measurable improvements in efficiency and impact.</p>
+                </div>
+                <div class="relative w-full max-w-3xl mx-auto overflow-hidden animate-on-scroll">
+                    <div id="testimonial-slider" class="flex">
+                        <div class="testimonial-card flex-shrink-0 w-full">
+                            <div class="bg-gray-800 p-8 rounded-xl text-center">
+                                <p class="text-xl italic text-gray-300 mb-6">"We cut our event planning time by **30%** and reduced coordination emails by 80%. EventFlow gave us the confidence to scale our annual conference effortlessly."</p>
+                                <img src="https://placehold.co/80x80/FFFFFF/000000?text=A.D." alt="Client Avatar" class="w-16 h-16 rounded-full mx-auto mb-2 border-2 border-indigo-400">
+                                <h4 class="font-bold text-lg">Alex Doe</h4>
+                                <p class="text-gray-400">CEO, Tech Innovators (Corporate Events)</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-card flex-shrink-0 w-full">
+                            <div class="bg-gray-800 p-8 rounded-xl text-center">
+                                <p class="text-xl italic text-gray-300 mb-6">"Our sponsors saw a **25% increase** in qualified leads because of the integrated lead-capture and real-time ROI tracking. Proving value is now automatic."</p>
+                                <img src="https://placehold.co/80x80/FFFFFF/000000?text=S.L." alt="Client Avatar" class="w-16 h-16 rounded-full mx-auto mb-2 border-2 border-indigo-400">
+                                <h4 class="font-bold text-lg">Sarah Lee</h4>
+                                <p class="text-gray-400">Marketing Director, Creative Co. (Product Launches)</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-card flex-shrink-0 w-full">
+                            <div class="bg-gray-800 p-8 rounded-xl text-center">
+                                <p class="text-xl italic text-gray-300 mb-6">"The 'Event Health Score' is a game-changer. It flagged a vendor conflict two weeks out, allowing us to resolve it—avoiding a near-failure scenario."</p>
+                                <img src="https://placehold.co/80x80/FFFFFF/000000?text=J.S." alt="Client Avatar" class="w-16 h-16 rounded-full mx-auto mb-2 border-2 border-indigo-400">
+                                <h4 class="font-bold text-lg">Jessica & Mark</h4>
+                                <p class="text-gray-400">Event Directors, Global Summit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="prevBtn" class="absolute top-1/2 left-0 sm:-left-16 transform -translate-y-1/2 bg-gray-700 hover:bg-indigo-600 p-2 rounded-full transition-colors">
+                        <i data-lucide="chevron-left" class="h-6 w-6"></i>
+                    </button>
+                    <button id="nextBtn" class="absolute top-1/2 right-0 sm:-right-16 transform -translate-y-1/2 bg-gray-700 hover:bg-indigo-600 p-2 rounded-full transition-colors">
+                        <i data-lucide="chevron-right" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-20 bg-indigo-600">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4 animate-on-scroll">Ready to eliminate event coordination chaos?</h2>
+                <p class="text-xl text-indigo-100 mb-8 animate-on-scroll" style="transition-delay: 200ms;">Book a personalized demo to see EventFlow in action.</p>
+                 <a href="#contact" class="bg-white text-indigo-600 hover:bg-gray-200 font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 animate-on-scroll" style="transition-delay: 400ms;">Get Started Today</a>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2 animate-on-scroll">Request a Platform Demo</h2>
+                    <p class="text-lg text-gray-400 animate-on-scroll" style="transition-delay: 200ms;">See how EventFlow can streamline your next event.</p>
+                </div>
+                <div class="max-w-xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg animate-on-scroll">
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-300 mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow" required>
+                        </div>
+                         <div class="mb-4">
+                            <label for="email" class="block text-gray-300 mb-2">Work Email</label>
+                            <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow" required>
+                        </div>
+                         <div class="mb-4">
+                            <label for="event-size" class="block text-gray-300 mb-2">Est. Event Size (Attendees)</label>
+                            <select id="event-size" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow">
+                                <option>100 - 500</option>
+                                <option>500 - 2,000</option>
+                                <option>2,000 - 10,000</option>
+                                <option>10,000+</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-300 mb-2">Event Goal/Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow" placeholder="Tell us what you hope to achieve with EventFlow..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Schedule Demo</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="facebook" class="h-6 w-6"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="twitter" class="h-6 w-6"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="instagram" class="h-6 w-6"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="linkedin" class="h-6 w-6"></i></a>
+            </div>
+            <p>&copy; 2024 EventFlow. All rights reserved. Built to end event chaos.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu on link click
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Animate on scroll (Intersection Observer)
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        // No need to unobserve if we want the animation to trigger again on re-entry, 
+                        // but for a one-time fade-in, keep the unobserve:
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Testimonial Slider functionality (remains the same)
+            const slider = document.getElementById('testimonial-slider');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            let currentIndex = 0;
+            const totalTestimonials = testimonials.length;
+
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalTestimonials;
+                updateSlider();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
+                updateSlider();
+            });
+            
+            // Auto-slide testimonials
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalTestimonials;
+                updateSlider();
+            }, 5000);
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventify - Unified Event Intelligence Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0F172A; /* Slate 900 */
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://placehold.co/1920x1080/0F172A/94A3B8?text=Unified+Event+Platform');
+            background-size: cover;
+            background-position: center;
+        }
+        .header-scrolled {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Live Chat Widget Styles */
+        #chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        #chat-icon-button {
+            transition: transform 0.3s ease;
+        }
+        #chat-icon-button.open {
+             transform: rotate(45deg);
+        }
+        #chat-box {
+            width: 300px;
+            height: 400px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .chat-message-bot {
+            background-color: #E0F2F7; /* Light Blue for bot */
+            color: #1E293B;
+            border-radius: 12px 12px 12px 0;
+            padding: 8px;
+            max-width: 80%;
+        }
+        .chat-message-user {
+            background-color: #6366F1; /* Indigo for user */
+            color: white;
+            border-radius: 12px 12px 0 12px;
+            padding: 8px;
+            max-width: 80%;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-white tracking-wider">Eventify<span class="text-indigo-400">.ai</span></a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#problem-solution" class="hover:text-indigo-400 transition-colors">Why Eventify?</a>
+                <a href="#modules" class="hover:text-indigo-400 transition-colors">Core Modules</a>
+                <a href="#portals" class="hover:text-indigo-400 transition-colors">Portals</a>
+                <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded-lg transition-colors">Request Demo</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800">
+            <a href="#problem-solution" class="block py-3 px-6 text-sm hover:bg-slate-700">Why Eventify?</a>
+            <a href="#modules" class="block py-3 px-6 text-sm hover:bg-slate-700">Core Modules</a>
+            <a href="#portals" class="block py-3 px-6 text-sm hover:bg-slate-700">Portals</a>
+            <a href="#contact" class="block py-3 px-6 text-sm hover:bg-slate-700">Request Demo</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-bg h-screen flex items-center justify-center text-center">
+            <div class="max-w-4xl mx-auto px-4">
+                <p class="text-xl text-indigo-400 font-medium mb-3 animate-on-scroll">THE UNIFIED EVENT PLATFORM</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-on-scroll" style="transition-delay: 100ms;">Stop Juggling 10 Tools. Start Running **Eventify**.</h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 animate-on-scroll" style="transition-delay: 200ms;">Eventify is the **AI-powered platform** that unifies planning, vendor management, and post-event analytics. Reduce coordination time by **40%**.</p>
+                <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 animate-on-scroll" style="transition-delay: 300ms;">Request Free Demo</a>
+                <div class="flex justify-center mt-6 space-x-4 text-slate-400 text-sm animate-on-scroll" style="transition-delay: 400ms;">
+                    <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-1 text-green-400"></i> Eliminates Data Silos</span>
+                    <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-1 text-green-400"></i> AI Risk Prediction</span>
+                    <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-1 text-green-400"></i> Seamless Execution</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="problem-solution" class="py-24 bg-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2 animate-on-scroll">The $45\%$ Failure Rate Stops Here.</h2>
+                    <p class="text-lg text-slate-400 animate-on-scroll" style="transition-delay: 100ms;">Contrast the old, chaotic way with the streamlined **Eventify Flow**.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="p-8 border-4 border-red-500 rounded-2xl bg-slate-800 animate-on-scroll">
+                        <h3 class="text-3xl font-bold text-red-400 mb-6 flex items-center"><i data-lucide="x-octagon" class="w-7 h-7 mr-3"></i> The Coordination Chaos</h3>
+                        <ul class="space-y-4 text-slate-300">
+                            <li class="flex items-start"><i data-lucide="alert-triangle" class="w-5 h-5 text-red-400 mt-1 mr-3 flex-shrink-0"></i> **10+ Disconnected Tools:** Data is trapped in spreadsheets, email, and 3rd-party apps.</li>
+                            <li class="flex items-start"><i data-lucide="alert-triangle" class="w-5 h-5 text-red-400 mt-1 mr-3 flex-shrink-0"></i> **Vendor Nightmares:** Communication is lost in endless email chains and WhatsApp groups.</li>
+                            <li class="flex items-start"><i data-lucide="alert-triangle" class="w-5 h-5 text-red-400 mt-1 mr-3 flex-shrink-0"></i> **No Proactive Warnings:** Budget overruns and logistical risks are only discovered when it's too late.</li>
+                        </ul>
+                    </div>
+                    <div class="p-8 border-4 border-indigo-500 rounded-2xl bg-slate-800 animate-on-scroll" style="transition-delay: 200ms;">
+                        <h3 class="text-3xl font-bold text-indigo-400 mb-6 flex items-center"><i data-lucide="check-circle" class="w-7 h-7 mr-3"></i> The Eventify Flow</h3>
+                        <ul class="space-y-4 text-slate-300">
+                            <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-indigo-400 mt-1 mr-3 flex-shrink-0"></i> **Unified Data Engine:** Centralized registration, budget, and task data in one cloud hub.</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-indigo-400 mt-1 mr-3 flex-shrink-0"></i> **Live Coordination Nexus:** Dedicated, context-aware communication with digital sign-off.</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-indigo-400 mt-1 mr-3 flex-shrink-0"></i> **AI Risk Prediction:** Real-time Event Health Score flags issues and suggests solutions instantly.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="modules" class="py-24 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4 animate-on-scroll">The Three Core Pillars</h2>
+                <p class="text-lg text-slate-400 mb-12 animate-on-scroll" style="transition-delay: 100ms;">Manage the entire event lifecycle with intelligence.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="p-8 rounded-xl bg-slate-800 shadow-xl transform hover:scale-[1.02] transition-transform duration-300 animate-on-scroll">
+                        <i data-lucide="gantt-chart" class="h-12 w-12 text-indigo-400 mb-4 mx-auto"></i>
+                        <h3 class="text-2xl font-semibold mb-3">1. Intelligent Planning</h3>
+                        <p class="text-slate-400">Integrated Gantt charts, contracts, and vendor CRM. Use the **AI Budget Guardrail** to prevent overruns.</p>
+                    </div>
+                    <div class="p-8 rounded-xl bg-slate-800 shadow-xl transform hover:scale-[1.02] transition-transform duration-300 animate-on-scroll" style="transition-delay: 200ms;">
+                        <i data-lucide="radar" class="h-12 w-12 text-indigo-400 mb-4 mx-auto"></i>
+                        <h3 class="text-2xl font-semibold mb-3">2. Seamless Execution</h3>
+                        <p class="text-slate-400">Real-time status, geo-fenced **Just-in-Time (JIT) alerts** for staff, and mobile checklists for vendors.</p>
+                    </div>
+                    <div class="p-8 rounded-xl bg-slate-800 shadow-xl transform hover:scale-[1.02] transition-transform duration-300 animate-on-scroll" style="transition-delay: 400ms;">
+                        <i data-lucide="activity" class="h-12 w-12 text-indigo-400 mb-4 mx-auto"></i>
+                        <h3 class="text-2xl font-semibold mb-3">3. ROI & Insights</h3>
+                        <p class="text-slate-400">Automated post-event reports, **live Sponsor ROI Dashboards**, and deep attendee engagement metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portals" class="py-24 bg-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-2 animate-on-scroll">Experience the Portals</h2>
+                    <p class="text-lg text-slate-400 animate-on-scroll" style="transition-delay: 100ms;">See how we transform the day-to-day for everyone.</p>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="eventify_organizer_dashboard.html" target="_blank" class="p-6 bg-slate-800 rounded-xl animate-on-scroll border-t-4 border-indigo-500 hover:bg-slate-700 transition-colors block group">
+                        <i data-lucide="layout-dashboard" class="h-8 w-8 text-indigo-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="text-xl font-semibold">Organizer Dashboard</h4>
+                        <p class="text-sm text-slate-400 mt-1">The Command Center for all planning and risk.</p>
+                        <p class="text-sm text-indigo-400 mt-2 font-medium flex items-center">View Mockup <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i></p>
+                    </a>
+                    <a href="eventify_attendee_itinerary.html" target="_blank" class="p-6 bg-slate-800 rounded-xl animate-on-scroll border-t-4 border-indigo-500 hover:bg-slate-700 transition-colors block group" style="transition-delay: 150ms;">
+                        <i data-lucide="smartphone" class="h-8 w-8 text-indigo-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="text-xl font-semibold">Attendee Itinerary</h4>
+                        <p class="text-sm text-slate-400 mt-1">AI-driven personalized schedules and wayfinding.</p>
+                        <p class="text-sm text-indigo-400 mt-2 font-medium flex items-center">View Mockup <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i></p>
+                    </a>
+                    <div class="p-6 bg-slate-800 rounded-xl animate-on-scroll border-t-4 border-indigo-500" style="transition-delay: 300ms;">
+                        <i data-lucide="trending-up" class="h-8 w-8 text-indigo-400 mb-2"></i>
+                        <h4 class="text-xl font-semibold">Sponsor Portal</h4>
+                        <p class="text-sm text-slate-400 mt-1">Live metrics, lead capture, and instant ROI proof.</p>
+                        <p class="text-sm text-slate-500 mt-2 font-medium">Demo Only</p>
+                    </div>
+                    <div class="p-6 bg-slate-800 rounded-xl animate-on-scroll border-t-4 border-indigo-500" style="transition-delay: 450ms;">
+                        <i data-lucide="hard-hat" class="h-8 w-8 text-indigo-400 mb-2"></i>
+                        <h4 class="text-xl font-semibold">Vendor Coordination</h4>
+                        <p class="text-sm text-slate-400 mt-1">Mobile checklists and JIT alerts for all staff.</p>
+                         <p class="text-sm text-slate-500 mt-2 font-medium">Demo Only</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-indigo-700">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4 animate-on-scroll">Ready for Coordinated Success?</h2>
+                <p class="text-xl text-indigo-200 mb-10 animate-on-scroll" style="transition-delay: 100ms;">Schedule a personalized 15-minute demo and see the Eventify difference.</p>
+                 <a href="#contact-form" class="bg-white text-indigo-700 hover:bg-gray-200 font-bold py-3 px-10 rounded-full text-lg shadow-xl transition-transform transform hover:scale-105 animate-on-scroll" style="transition-delay: 200ms;">Book a Demo Now</a>
+            </div>
+        </section>
+
+        <section id="contact-form" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="max-w-xl mx-auto bg-slate-800 p-8 rounded-xl shadow-lg animate-on-scroll">
+                    <h3 class="text-2xl font-bold mb-6 text-white">Tell Us About Your Event Needs</h3>
+                    <form id="demo-form">
+                        <div class="mb-4">
+                            <label for="name" class="block text-slate-300 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow">
+                        </div>
+                         <div class="mb-4">
+                            <label for="email" class="block text-slate-300 mb-2">Work Email</label>
+                            <input type="email" id="email" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-slate-300 mb-2">Event Goal / Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Submit Demo Request</button>
+                    </form>
+                    <p id="form-message" class="mt-4 text-center text-green-400 hidden">Your demo request has been sent! We'll be in touch shortly.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 border-t border-slate-700">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
+            <p>&copy; 2024 Eventify. All rights reserved. The future of seamless event coordination.</p>
+        </div>
+    </footer>
+
+    <div id="chat-widget">
+        <button id="chat-icon-button" class="bg-indigo-600 hover:bg-indigo-500 text-white p-4 rounded-full shadow-2xl transition-all duration-300">
+            <i data-lucide="message-square" class="w-6 h-6"></i>
+        </button>
+
+        <div id="chat-box" class="hidden absolute bottom-20 right-0 bg-white rounded-xl overflow-hidden flex flex-col" style="opacity: 0; transform: scale(0.8);">
+            <div class="bg-indigo-600 text-white p-3 font-semibold flex justify-between items-center">
+                <span>Chat with Eventify Sales</span>
+                <button id="chat-close-button"><i data-lucide="x" class="w-4 h-4 text-white"></i></button>
+            </div>
+            <div id="chat-messages" class="flex-grow p-4 text-gray-800 overflow-y-auto space-y-3">
+                <div class="chat-message-bot">Hi! I'm Eventi. To best help you, are you an Organizer, Vendor, or Attendee?</div>
+            </div>
+            <div class="p-3 border-t border-gray-200 flex">
+                <input type="text" id="chat-input" placeholder="Type your message..." class="w-full p-2 border border-gray-300 rounded-l-lg text-gray-800 focus:ring-indigo-500 focus:border-indigo-500">
+                <button id="chat-send-button" class="bg-indigo-600 text-white p-2 rounded-r-lg hover:bg-indigo-700">
+                     <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+
+            // --- NAVIGATION & ANIMATION ---
+            const header = document.getElementById('header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const demoForm = document.getElementById('demo-form');
+            const formMessage = document.getElementById('form-message');
+
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('header-scrolled', window.scrollY > 50);
+            });
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
+            });
+
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => { observer.observe(el); });
+            
+            // Simulate form submission
+            demoForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                demoForm.reset();
+                formMessage.classList.remove('hidden');
+                setTimeout(() => { formMessage.classList.add('hidden'); }, 5000);
+            });
+
+            // --- LIVE CHAT FUNCTIONALITY ---
+            const chatIconButton = document.getElementById('chat-icon-button');
+            const chatBox = document.getElementById('chat-box');
+            const chatCloseButton = document.getElementById('chat-close-button');
+            const chatInput = document.getElementById('chat-input');
+            const chatSendButton = document.getElementById('chat-send-button');
+            const chatMessages = document.getElementById('chat-messages');
+
+            let chatStep = 0;
+
+            const toggleChat = () => {
+                const isHidden = chatBox.classList.toggle('hidden');
+                chatIconButton.classList.toggle('open', !isHidden);
+                
+                if (!isHidden) {
+                    setTimeout(() => {
+                        chatBox.style.transform = 'scale(1)';
+                        chatBox.style.opacity = '1';
+                        chatInput.focus();
+                    }, 10);
+                } else {
+                    chatBox.style.transform = 'scale(0.8)';
+                    chatBox.style.opacity = '0';
+                }
+            };
+
+            chatIconButton.addEventListener('click', toggleChat);
+            chatCloseButton.addEventListener('click', toggleChat);
+
+            const appendMessage = (message, isUser = false) => {
+                const div = document.createElement('div');
+                div.className = isUser ? 'chat-message-user ml-auto' : 'chat-message-bot';
+                div.textContent = message;
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+
+            const sendChat = () => {
+                const userMessage = chatInput.value.trim();
+                if (userMessage === '') return;
+
+                appendMessage(userMessage, true);
+                chatInput.value = '';
+
+                // Simulate bot response and lead qualification flow
+                setTimeout(() => {
+                    let botResponse = '';
+                    if (chatStep === 0) {
+                        // Response to "Organizer/Vendor/Attendee"
+                        if (userMessage.toLowerCase().includes('organizer')) {
+                            botResponse = "Perfect! Our platform is built to eliminate the event chaos you face. What is your estimated annual event volume?";
+                            chatStep = 1;
+                        } else {
+                            botResponse = "I can certainly help! For vendors/attendees, please visit our Help Center, or for sales questions, what's your event size?";
+                        }
+                    } else if (chatStep === 1) {
+                        // Response to event volume/size
+                        botResponse = "Got it. I'll connect you with a Sales Specialist who handles that volume. Please submit your work email here and they will contact you within 5 minutes to schedule a demo!";
+                        chatStep = 2;
+                    } else if (chatStep === 2) {
+                        // Response to email submission
+                        botResponse = `Thank you! We've created your lead profile and a specialist will follow up shortly at ${userMessage}. Have a great day!`;
+                        chatStep = 3; // Flow completed
+                    } else {
+                        botResponse = "I'm sorry, my qualification flow is complete. Please check your email for the specialist's message!";
+                    }
+                    appendMessage(botResponse, false);
+                }, 1000);
+            };
+
+            chatSendButton.addEventListener('click', sendChat);
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendChat();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
