@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventify - Your Premier Event Management Partner</title>
+    <title>Event Hub - Your Premier Event Management Partner</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -11,13 +11,19 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
-        .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/000000/FFFFFF?text=Elegant+Event');
-            background-size: cover;
-            background-position: center;
+        /* Styles for the canvas element */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block; /* Ensure no extra space below canvas */
+            object-fit: cover; /* This is handled by JS, but good fallback */
         }
+
         .header-scrolled {
-            background-color: rgba(17, 24, 39, 0.9);
+             background-color: rgba(17, 24, 39, 0.9);
             backdrop-filter: blur(10px);
         }
         .animate-on-scroll {
@@ -37,22 +43,20 @@
 </head>
 <body class="bg-gray-900 text-white">
 
-    <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-bold text-white tracking-wider">Eventify</a>
+            <a href="#" class="text-4xl font-bold text-white tracking-wider">EventHub</a>
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#services" class="hover:text-indigo-400 transition-colors">Services</a>
                 <a href="#gallery" class="hover:text-indigo-400 transition-colors">Gallery</a>
                 <a href="#testimonials" class="hover:text-indigo-400 transition-colors">Testimonials</a>
                 <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded-lg transition-colors">Contact Us</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden">
+            <button id="mobile-menu-button" class="md:hidden" aria-label="Open main menu">
                 <i data-lucide="menu" class="h-6 w-6"></i>
             </button>
         </nav>
-         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+         <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
             <a href="#services" class="block py-2 px-4 text-sm hover:bg-gray-700">Services</a>
             <a href="#gallery" class="block py-2 px-4 text-sm hover:bg-gray-700">Gallery</a>
             <a href="#testimonials" class="block py-2 px-4 text-sm hover:bg-gray-700">Testimonials</a>
@@ -61,16 +65,21 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-bg h-screen flex items-center justify-center text-center">
-            <div class="max-w-3xl mx-auto px-4">
+        <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <!-- Canvas for the background image carousel -->
+            <canvas id="hero-canvas"></canvas>
+
+            <!-- Dark overlay for better text readability -->
+            <div class="absolute inset-0 bg-black opacity-60 z-0"></div>
+
+            <!-- Hero section content -->
+            <div class="relative z-10 max-w-3xl mx-auto px-4">
                 <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-on-scroll">Creating Unforgettable Experiences</h1>
                 <p class="text-lg md:text-xl text-gray-300 mb-8 animate-on-scroll" style="transition-delay: 200ms;">From intimate gatherings to grand celebrations, we bring your vision to life with passion, precision, and flair.</p>
                 <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 animate-on-scroll" style="transition-delay: 400ms;">Plan Your Event</a>
             </div>
         </section>
 
-        <!-- Services Section -->
         <section id="services" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -78,7 +87,6 @@
                     <p class="text-lg text-gray-400 animate-on-scroll" style="transition-delay: 200ms;">We handle every detail, so you can enjoy the moment.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1 -->
                     <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll">
                         <div class="mb-4 text-indigo-400">
                             <i data-lucide="building-2" class="h-12 w-12"></i>
@@ -86,7 +94,6 @@
                         <h3 class="text-2xl font-semibold mb-3">Corporate Events</h3>
                         <p class="text-gray-400">Conferences, seminars, and product launches that make a statement and drive results.</p>
                     </div>
-                    <!-- Service Card 2 -->
                     <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll" style="transition-delay: 200ms;">
                         <div class="mb-4 text-indigo-400">
                             <i data-lucide="heart" class="h-12 w-12"></i>
@@ -94,7 +101,6 @@
                         <h3 class="text-2xl font-semibold mb-3">Weddings & Socials</h3>
                         <p class="text-gray-400">Crafting beautiful, bespoke weddings and social gatherings that tell your unique story.</p>
                     </div>
-                    <!-- Service Card 3 -->
                     <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll" style="transition-delay: 400ms;">
                          <div class="mb-4 text-indigo-400">
                             <i data-lucide="mic" class="h-12 w-12"></i>
@@ -106,7 +112,6 @@
             </div>
         </section>
 
-        <!-- Gallery Section -->
         <section id="gallery" class="py-20">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -115,26 +120,25 @@
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="grid gap-4">
-                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/6366F1/FFFFFF?text=Wedding" alt=""></div>
-                        <div class="animate-on-scroll" style="transition-delay: 200ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/10B981/FFFFFF?text=Concert" alt=""></div>
+                        <div class="animate-on-scroll"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/6366F1/FFFFFF?text=Wedding" alt="Wedding event photo"></div>
+                        <div class="animate-on-scroll" style="transition-delay: 200ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/10B981/FFFFFF?text=Concert" alt="Concert event photo"></div>
                     </div>
                      <div class="grid gap-4">
-                        <div class="animate-on-scroll" style="transition-delay: 300ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/F59E0B/FFFFFF?text=Conference" alt=""></div>
-                        <div class="animate-on-scroll" style="transition-delay: 400ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/EC4899/FFFFFF?text=Gala" alt=""></div>
+                        <div class="animate-on-scroll" style="transition-delay: 300ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/F59E0B/FFFFFF?text=Conference" alt="Conference event photo"></div>
+                        <div class="animate-on-scroll" style="transition-delay: 400ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/EC4899/FFFFFF?text=Gala" alt="Gala event photo"></div>
                     </div>
                      <div class="grid gap-4">
-                        <div class="animate-on-scroll" style="transition-delay: 500ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/EF4444/FFFFFF?text=Launch" alt=""></div>
-                        <div class="animate-on-scroll" style="transition-delay: 600ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/3B82F6/FFFFFF?text=Party" alt=""></div>
+                        <div class="animate-on-scroll" style="transition-delay: 500ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/EF4444/FFFFFF?text=Launch" alt="Product launch event photo"></div>
+                        <div class="animate-on-scroll" style="transition-delay: 600ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/3B82F6/FFFFFF?text=Party" alt="Party event photo"></div>
                     </div>
                      <div class="grid gap-4">
-                        <div class="animate-on-scroll" style="transition-delay: 700ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/8B5CF6/FFFFFF?text=Celebration" alt=""></div>
-                        <div class="animate-on-scroll" style="transition-delay: 800ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/14B8A6/FFFFFF?text=Expo" alt=""></div>
+                        <div class="animate-on-scroll" style="transition-delay: 700ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x600/8B5CF6/FFFFFF?text=Celebration" alt="Celebration event photo"></div>
+                        <div class="animate-on-scroll" style="transition-delay: 800ms;"><img class="h-auto max-w-full rounded-lg hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/14B8A6/FFFFFF?text=Expo" alt="Expo event photo"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
         <section id="testimonials" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -143,17 +147,15 @@
                 </div>
                 <div class="relative w-full max-w-3xl mx-auto overflow-hidden animate-on-scroll">
                     <div id="testimonial-slider" class="flex">
-                        <!-- Testimonial 1 -->
                         <div class="testimonial-card flex-shrink-0 w-full">
                             <div class="bg-gray-800 p-8 rounded-xl text-center">
-                                <p class="text-xl italic text-gray-300 mb-6">"Eventify transformed our annual conference. The attention to detail was impeccable, and our attendees were blown away. We couldn't have done it without them!"</p>
+                                <p class="text-xl italic text-gray-300 mb-6">"EventHub transformed our annual conference. The attention to detail was impeccable, and our attendees were blown away. We couldn't have done it without them!"</p>
                                 <img src="https://placehold.co/80x80/FFFFFF/000000?text=A.D." alt="Client Avatar" class="w-16 h-16 rounded-full mx-auto mb-2 border-2 border-indigo-400">
                                 <h4 class="font-bold text-lg">Alex Doe</h4>
                                 <p class="text-gray-400">CEO, Tech Innovators</p>
                             </div>
                         </div>
-                        <!-- Testimonial 2 -->
-                         <div class="testimonial-card flex-shrink-0 w-full">
+                        <div class="testimonial-card flex-shrink-0 w-full">
                             <div class="bg-gray-800 p-8 rounded-xl text-center">
                                 <p class="text-xl italic text-gray-300 mb-6">"The most beautiful wedding, perfectly executed. The team was professional, creative, and made our special day completely stress-free. Highly recommended!"</p>
                                 <img src="https://placehold.co/80x80/FFFFFF/000000?text=J.S." alt="Client Avatar" class="w-16 h-16 rounded-full mx-auto mb-2 border-2 border-indigo-400">
@@ -161,27 +163,25 @@
                                 <p class="text-gray-400">Newlyweds</p>
                             </div>
                         </div>
-                        <!-- Testimonial 3 -->
                         <div class="testimonial-card flex-shrink-0 w-full">
                             <div class="bg-gray-800 p-8 rounded-xl text-center">
-                                <p class="text-xl italic text-gray-300 mb-6">"Our product launch was a massive success, thanks to Eventify. They understood our brand and delivered an event that generated significant buzz."</p>
+                                <p class="text-xl italic text-gray-300 mb-6">"Our product launch was a massive success, thanks to EventHub. They understood our brand and delivered an event that generated significant buzz."</p>
                                 <img src="https://placehold.co/80x80/FFFFFF/000000?text=S.L." alt="Client Avatar" class="w-16 h-16 rounded-full mx-auto mb-2 border-2 border-indigo-400">
                                 <h4 class="font-bold text-lg">Sarah Lee</h4>
                                 <p class="text-gray-400">Marketing Director, Creative Co.</p>
                             </div>
                         </div>
                     </div>
-                    <button id="prevBtn" class="absolute top-1/2 left-0 sm:-left-16 transform -translate-y-1/2 bg-gray-700 hover:bg-indigo-600 p-2 rounded-full transition-colors">
+                    <button id="prevBtn" class="absolute top-1/2 left-0 sm:-left-16 transform -translate-y-1/2 bg-gray-700 hover:bg-indigo-600 p-2 rounded-full transition-colors" aria-label="Previous testimonial">
                         <i data-lucide="chevron-left" class="h-6 w-6"></i>
                     </button>
-                    <button id="nextBtn" class="absolute top-1/2 right-0 sm:-right-16 transform -translate-y-1/2 bg-gray-700 hover:bg-indigo-600 p-2 rounded-full transition-colors">
+                    <button id="nextBtn" class="absolute top-1/2 right-0 sm:-right-16 transform -translate-y-1/2 bg-gray-700 hover:bg-indigo-600 p-2 rounded-full transition-colors" aria-label="Next testimonial">
                         <i data-lucide="chevron-right" class="h-6 w-6"></i>
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-20">
             <div class="container mx-auto px-6">
                  <div class="text-center mb-12">
@@ -192,15 +192,15 @@
                     <form>
                         <div class="mb-4">
                             <label for="name" class="block text-gray-300 mb-2">Name</label>
-                            <input type="text" id="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow">
+                            <input type="text" id="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow" required>
                         </div>
                          <div class="mb-4">
                             <label for="email" class="block text-gray-300 mb-2">Email</label>
-                            <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow">
+                            <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow" required>
                         </div>
                         <div class="mb-4">
                             <label for="message" class="block text-gray-300 mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow"></textarea>
+                            <textarea id="message" rows="4" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow" required></textarea>
                         </div>
                         <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Send Message</button>
                     </form>
@@ -209,94 +209,243 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 border-t border-gray-700">
         <div class="container mx-auto px-6 py-8 text-center text-gray-400">
             <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="facebook" class="h-6 w-6"></i></a>
-                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="twitter" class="h-6 w-6"></i></a>
-                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="instagram" class="h-6 w-6"></i></a>
-                <a href="#" class="hover:text-indigo-400 transition-colors"><i data-lucide="linkedin" class="h-6 w-6"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors" aria-label="Visit our Facebook page"><i data-lucide="facebook" class="h-6 w-6"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors" aria-label="Visit our Twitter page"><i data-lucide="twitter" class="h-6 w-6"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors" aria-label="Visit our Instagram page"><i data-lucide="instagram" class="h-6 w-6"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors" aria-label="Visit our LinkedIn page"><i data-lucide="linkedin" class="h-6 w-6"></i></a>
             </div>
-            <p>&copy; 2024 Eventify. All rights reserved. Crafted with passion.</p>
+            <p>&copy; 2024 EventHub. All rights reserved. Crafted with passion.</p>
         </div>
     </footer>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
 
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
 
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu on link click
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            lucide.createIcons();
-
-            // Header scroll effect
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('header-scrolled');
-                } else {
-                    header.classList.remove('header-scrolled');
+        // Animate on scroll
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
                 }
             });
+        }, { threshold: 0.1 });
 
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            // Close mobile menu on link click
-            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Testimonial Slider
+        const sliderContainer = document.querySelector('#testimonials .relative.w-full');
+        const slider = document.getElementById('testimonial-slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        let currentIndex = 0;
+        const totalTestimonials = testimonials.length;
+        let autoSlideInterval;
 
-            // Animate on scroll
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
 
-            animatedElements.forEach(el => {
-                observer.observe(el);
-            });
-            
-            // Testimonial Slider
-            const slider = document.getElementById('testimonial-slider');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const testimonials = document.querySelectorAll('.testimonial-card');
-            let currentIndex = 0;
-            const totalTestimonials = testimonials.length;
-
-            function updateSlider() {
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalTestimonials;
-                updateSlider();
-            });
-
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
-                updateSlider();
-            });
-            
-            // Auto-slide testimonials
-            setInterval(() => {
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % totalTestimonials;
                 updateSlider();
             }, 5000);
+        }
 
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            stopAutoSlide();
+            currentIndex = (currentIndex + 1) % totalTestimonials;
+            updateSlider();
+            startAutoSlide();
         });
-    </script>
+
+        prevBtn.addEventListener('click', () => {
+            stopAutoSlide();
+            currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
+            updateSlider();
+            startAutoSlide();
+        });
+        
+        startAutoSlide();
+
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+            sliderContainer.addEventListener('mouseleave', startAutoSlide);
+        }
+
+        // --- HERO CANVAS CAROUSEL ---
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Array of high-quality, actual event image URLs for the carousel
+        const imageUrls = [
+            'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Corporate Event
+            'https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Wedding
+            'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Concert
+            'https://images.unsplash.com/photo-1505373877841-8c25f7d46678?q=80&w=2012&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'  // Social Gathering / Conference
+        ];
+        
+        let loadedImages = [];
+        let currentImageIndex = 0;
+        let nextImageIndex = 1;
+        let fadeAlpha = 0; // Current opacity for the fading image
+        const fadeDuration = 1000; // milliseconds for fade transition
+        const displayDuration = 4000; // milliseconds to display each image
+        let lastTime = 0;
+        let timeSinceLastTransition = 0;
+
+        // Function to load all images
+        function loadImages(urls, callback) {
+            let imagesToLoad = urls.length;
+            if (imagesToLoad === 0) {
+                callback();
+                return;
+            }
+            urls.forEach((url, index) => {
+                const img = new Image();
+                img.crossOrigin = "Anonymous"; // Handle potential CORS issues with unsplash
+                img.src = url;
+                img.onload = () => {
+                    loadedImages[index] = img;
+                    imagesToLoad--;
+                    if (imagesToLoad === 0) {
+                        callback(); // All images loaded
+                    }
+                };
+                img.onerror = () => {
+                    console.error(`Failed to load image: ${url}`);
+                    imagesToLoad--; // Still decrement to avoid infinite loading
+                    if (imagesToLoad === 0) {
+                        callback();
+                    }
+                };
+            });
+        }
+
+        // Function to resize canvas to fit parent
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+
+        // Function to draw an image covering the canvas while maintaining aspect ratio
+        function drawCoverImage(img, context, canvasWidth, canvasHeight) {
+            const imgAspectRatio = img.width / img.height;
+            const canvasAspectRatio = canvasWidth / canvasHeight;
+
+            let renderWidth, renderHeight, x, y;
+
+            if (imgAspectRatio > canvasAspectRatio) {
+                // Image is wider than canvas, so fit to height
+                renderHeight = canvasHeight;
+                renderWidth = img.width * (canvasHeight / img.height);
+                x = (canvasWidth - renderWidth) / 2;
+                y = 0;
+            } else {
+                // Image is taller or same aspect ratio as canvas, so fit to width
+                renderWidth = canvasWidth;
+                renderHeight = img.height * (canvasWidth / img.width);
+                x = 0;
+                y = (canvasHeight - renderHeight) / 2;
+            }
+            context.drawImage(img, x, y, renderWidth, renderHeight);
+        }
+
+        // Main animation loop
+        function animateCarousel(currentTime) {
+            if (!lastTime) lastTime = currentTime;
+            const deltaTime = currentTime - lastTime;
+            lastTime = currentTime;
+
+            timeSinceLastTransition += deltaTime;
+
+            // Update fade alpha after display duration has passed
+            if (timeSinceLastTransition > displayDuration) {
+                fadeAlpha += deltaTime / fadeDuration;
+                if (fadeAlpha >= 1) {
+                    currentImageIndex = nextImageIndex;
+                    nextImageIndex = (currentImageIndex + 1) % loadedImages.length;
+                    fadeAlpha = 0;
+                    timeSinceLastTransition = 0; // Reset timer for next cycle
+                }
+            }
+            
+            // Prevent drawing if canvas has no size
+            if (canvas.width === 0 || canvas.height === 0) {
+                requestAnimationFrame(animateCarousel);
+                return;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+
+            // Draw the current image
+            if (loadedImages[currentImageIndex]) {
+                ctx.globalAlpha = 1;
+                drawCoverImage(loadedImages[currentImageIndex], ctx, canvas.width, canvas.height);
+            }
+
+            // Draw the next image on top with increasing opacity for fade effect
+            if (loadedImages[nextImageIndex] && fadeAlpha > 0) {
+                ctx.globalAlpha = Math.min(fadeAlpha, 1); // Clamp alpha to 1
+                drawCoverImage(loadedImages[nextImageIndex], ctx, canvas.width, canvas.height);
+            }
+
+            // Restore globalAlpha for other potential canvas operations
+            ctx.globalAlpha = 1; 
+
+            requestAnimationFrame(animateCarousel);
+        }
+
+        // Initialize carousel
+        loadImages(imageUrls, () => {
+            if (loadedImages.length === 0) {
+                console.error("No images could be loaded for the carousel.");
+                return;
+            }
+            resizeCanvas(); // Set initial canvas size
+            window.addEventListener('resize', resizeCanvas); // Resize canvas on window resize
+            requestAnimationFrame(animateCarousel); // Start animation loop
+        });
+    });
+</script>
 </body>
 </html>
+
