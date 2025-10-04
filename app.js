@@ -12,6 +12,20 @@ app.get("/", function(req, res){
     res.render("home");
 });
 
+app.get("/attendees", function(req, res){
+    res.render("attendees");
+});
+
+app.get("/organizers", function(req, res){
+    res.render("organizers");
+});
+app.get("/sponsors", function(req, res){
+    res.render("sponsors");
+});
+app.get("/vendors", function(req, res){
+    res.render("vendors");
+});
+
 // Start server
 app.listen(process.env.PORT || 3000, function(){
     console.log("Server is live...");
