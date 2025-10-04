@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub Sponsor Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1A1A2E;
+            color: #F0F0F0;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #23223B;
+            min-height: 100vh;
+            padding: 1.5rem 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        }
+        .sidebar-item {
+            padding: 0.75rem 1.5rem;
+            color: #C0C0D0;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .sidebar-item:hover {
+            background-color: #383652;
+            color: #FFFFFF;
+        }
+        .sidebar-item.active {
+            background-color: #383652;
+            color: #FFC0CB; /* Soft Pink for Sponsorship Focus */
+            border-left: 3px solid #FFC0CB;
+        }
+        .card {
+            background-color: #23223B;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="flex">
+
+    <aside class="sidebar flex flex-col fixed h-full">
+        <div class="px-6 mb-10">
+            <span class="text-2xl font-extrabold text-white">EventHub<span class="text-[#9999FF]"></span></span>
+        </div>
+        <nav class="space-y-1">
+            <div class="px-6 text-xs text-gray-500 mb-2 uppercase tracking-wider">Acme Tech Corp.</div>
+            <a href="#" class="sidebar-item active flex items-center">
+                <i data-lucide="award" class="h-5 w-5 mr-3"></i> ROI Dashboard
+            </a>
+            <a href="#" class="sidebar-item flex items-center" onclick="alert('Viewing Lead Capture Report')">
+                <i data-lucide="users" class="h-5 w-5 mr-3"></i> Leads & Contacts
+            </a>
+            <a href="#" class="sidebar-item flex items-center" onclick="alert('Viewing Booth Staff Access')">
+                <i data-lucide="scan" class="h-5 w-5 mr-3"></i> Badge Scanner
+            </a>
+            <a href="#" class="sidebar-item flex items-center" onclick="alert('Viewing Resource Uploads')">
+                <i data-lucide="cloud-upload" class="h-5 w-5 mr-3"></i> My Assets
+            </a>
+        </nav>
+    </aside>
+
+    <div class="flex-1 p-8 ml-[200px]">
+        <header class="flex justify-between items-center pb-6 border-b border-gray-700/50 mb-8">
+            <h1 class="text-4xl font-extrabold text-white">Sponsor ROI Dashboard</h1>
+            <div class="flex items-center space-x-4">
+                <p class="text-lg font-medium text-purple-400">Event: Future of Software 2024</p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="card border-l-4 border-green-500">
+                <div class="text-xs text-gray-400 mb-2">Total Leads Captured</div>
+                <div class="text-4xl font-bold text-green-400">187</div>
+                <div class="text-sm mt-1">+12% vs Goal</div>
+            </div>
+            <div class="card border-l-4 border-[#9999FF]">
+                <div class="text-xs text-gray-400 mb-2">Booth Traffic (Unique Scans)</div>
+                <div class="text-4xl font-bold text-white">459</div>
+                <div class="text-sm mt-1">2.3x more than average</div>
+            </div>
+            <div class="card border-l-4 border-yellow-500">
+                <div class="text-xs text-gray-400 mb-2">Content Downloads (from app)</div>
+                <div class="text-4xl font-bold text-white">1,215</div>
+                <div class="text-sm mt-1">Whitepapers & Case Studies</div>
+            </div>
+            <div class="card border-l-4 border-pink-500">
+                <div class="text-xs text-gray-400 mb-2">Estimated Event ROI Score</div>
+                <div class="text-4xl font-bold text-pink-400">9.1/10</div>
+                <div class="text-sm mt-1">On track for platinum renewal.</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 card">
+                <h2 class="text-xl font-bold mb-4 flex items-center"><i data-lucide="bar-chart-3" class="h-5 w-5 mr-2 text-[#9999FF]"></i> Lead Quality Breakdown</h2>
+                <div class="h-80 flex items-center justify-center text-gray-500">
+                    [Placeholder: Live Lead Quality Chart]
+                </div>
+                <div class="mt-4 flex justify-between text-sm">
+                    <p>Hot Leads (Decision Makers): <span class="text-red-400 font-semibold">45</span></p>
+                    <p>Warm Leads (Influencers): <span class="text-yellow-400 font-semibold">102</span></p>
+                    <p>Nurture Leads (Students/Entry): <span class="text-green-400 font-semibold">40</span></p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-1 card">
+                <h2 class="text-xl font-bold mb-4 flex items-center text-green-400"><i data-lucide="dollar-sign" class="h-5 w-5 mr-2"></i> Instant ROI Proof</h2>
+                <ul class="space-y-4">
+                    <li class="border-b border-gray-700/50 pb-2">
+                        <div class="font-medium flex justify-between items-center">Social Media Mentions</div>
+                        <p class="text-gray-400 text-sm"><span class="text-green-400 font-semibold">1,540</span> (Avg. Reach: 4.1M)</p>
+                    </li>
+                    <li class="border-b border-gray-700/50 pb-2">
+                        <div class="font-medium flex justify-between items-center">Session Attendance (Sponsored Talk)</div>
+                        <p class="text-gray-400 text-sm"><span class="text-green-400 font-semibold">250/300</span> Seats Filled (83%)</p>
+                    </li>
+                    <li>
+                        <div class="font-medium flex justify-between items-center">Networking Meetings Booked</div>
+                        <p class="text-gray-400 text-sm"><span class="text-green-400 font-semibold">45</span> one-on-one meetings</p>
+                    </li>
+                </ul>
+                <button class="w-full mt-6 bg-[#9999FF] hover:bg-indigo-500 text-white font-bold py-2 rounded-lg transition-colors" onclick="alert('Downloading full detailed ROI report...')">
+                    Download Full Report
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
