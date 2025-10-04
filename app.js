@@ -12,17 +12,17 @@ app.get("/", function(req, res){
     res.render("home");
 });
 
-app.get("/attendees", function(req, res){
+app.get("/attendee-itinerary", function(req, res){
     res.render("attendees");
 });
 
-app.get("/dashboard", function(req, res){
+app.get("/organizer-dashboard", function(req, res){
     res.render("dashboard");
 });
-app.get("/sponsors", function(req, res){
+app.get("/sponsor-portal", function(req, res){
     res.render("sponsors");
 });
-app.get("/vendors", function(req, res){
+app.get("/vendor-coordination", function(req, res){
     res.render("vendors");
 });
 
