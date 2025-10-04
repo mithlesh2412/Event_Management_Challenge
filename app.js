@@ -16,8 +16,8 @@ app.get("/attendees", function(req, res){
     res.render("attendees");
 });
 
-app.get("/organizers", function(req, res){
-    res.render("organizers");
+app.get("/dashboard", function(req, res){
+    res.render("dashboard");
 });
 app.get("/sponsors", function(req, res){
     res.render("sponsors");

@@ -1,3 +1,286 @@
 <%- include("partials/header") -%>
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Attendee Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .nav-link.active i, .nav-link.active span {
+            color: #3b82f6; /* blue-500 */
+        }
+        /* Custom scrollbar for better aesthetics in dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b; /* slate-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569; /* slate-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b; /* slate-500 */
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <div id="app-container" class="min-h-screen max-w-4xl mx-auto flex flex-col">
+
+        <!-- Header -->
+        <header class="p-4 flex justify-between items-center sticky top-0 bg-slate-900/80 backdrop-blur-sm z-10">
+            <div>
+                <h1 class="text-xl font-bold text-white">InnovateX 2025</h1>
+                <p class="text-sm text-blue-400">Welcome, Alex!</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                 <i class="fas fa-bell text-xl text-slate-400 hover:text-white cursor-pointer"></i>
+                 <img src="https://placehold.co/40x40/3b82f6/ffffff?text=A" alt="User Profile" class="w-10 h-10 rounded-full border-2 border-slate-700">
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow p-4 space-y-6">
+
+            <!-- Home Tab Content -->
+            <div id="home" class="tab-content active space-y-6">
+                <!-- Digital Ticket Widget -->
+                <div class="bg-slate-800 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-lg border border-slate-700">
+                    <div class="flex-shrink-0">
+                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=UserID-12345-InnovateX2025&bgcolor=1e293b&color=ffffff&qzone=1" alt="QR Code Ticket" class="rounded-lg border-4 border-slate-700">
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h2 class="text-2xl font-bold text-white">Your Access Pass</h2>
+                        <p class="text-slate-400">Scan for entry & at sponsor booths.</p>
+                        <p class="mt-2 font-semibold text-lg text-blue-400">Alex Johnson</p>
+                        <p class="text-sm text-slate-500">VIP Admission</p>
+                        <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors w-full md:w-auto">
+                            <i class="fas fa-wallet mr-2"></i>Add to Wallet
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Status Widgets -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- What's Happening Now -->
+                    <div class="bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-700">
+                        <h3 class="text-lg font-bold text-white mb-3"><i class="fas fa-clock mr-2 text-yellow-400 animate-pulse"></i>What's Happening Now</h3>
+                        <p class="font-semibold text-blue-400">Keynote: The Future of AI</p>
+                        <p class="text-sm text-slate-400">Dr. Evelyn Reed | Main Hall A</p>
+                        <p class="text-xs text-slate-500 mt-1">10:00 AM - 11:00 AM</p>
+                        <div class="flex space-x-2 mt-4">
+                            <button class="flex-1 bg-slate-700 hover:bg-slate-600 text-white text-sm font-bold py-2 px-3 rounded-lg transition-colors"><i class="fas fa-question-circle mr-1"></i>Join Q&A</button>
+                            <button class="flex-1 bg-slate-700 hover:bg-slate-600 text-white text-sm font-bold py-2 px-3 rounded-lg transition-colors"><i class="fas fa-poll mr-1"></i>Live Poll</button>
+                        </div>
+                    </div>
+                    <!-- Up Next -->
+                    <div class="bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-700">
+                        <h3 class="text-lg font-bold text-white mb-3"><i class="fas fa-arrow-right mr-2 text-green-400"></i>Up Next</h3>
+                        <p class="font-semibold text-blue-400">Networking Lunch</p>
+                        <p class="text-sm text-slate-400">Garden Plaza</p>
+                        <p class="text-xs text-slate-500 mt-1">11:00 AM - 12:30 PM</p>
+                         <p class="text-sm text-slate-300 mt-4">Connect with peers and speakers!</p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                 <div class="bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-700">
+                    <h3 class="text-lg font-bold text-white mb-4">Quick Links</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <button id="wifi-btn" class="flex flex-col items-center p-3 bg-slate-700/50 hover:bg-slate-700 rounded-lg transition-colors">
+                            <i class="fas fa-wifi text-2xl text-blue-400 mb-2"></i>
+                            <span class="font-medium text-sm">Wi-Fi Access</span>
+                        </button>
+                        <button class="nav-link-btn flex flex-col items-center p-3 bg-slate-700/50 hover:bg-slate-700 rounded-lg transition-colors" data-tab="map">
+                            <i class="fas fa-map-marked-alt text-2xl text-green-400 mb-2"></i>
+                            <span class="font-medium text-sm">Interactive Map</span>
+                        </button>
+                        <a href="#" class="flex flex-col items-center p-3 bg-slate-700/50 hover:bg-slate-700 rounded-lg transition-colors">
+                            <i class="fas fa-headset text-2xl text-purple-400 mb-2"></i>
+                            <span class="font-medium text-sm">Help Desk</span>
+                        </a>
+                        <a href="#" class="flex flex-col items-center p-3 bg-slate-700/50 hover:bg-slate-700 rounded-lg transition-colors">
+                           <i class="fas fa-users text-2xl text-yellow-400 mb-2"></i>
+                            <span class="font-medium text-sm">Social Feed</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agenda Tab Content -->
+            <div id="agenda" class="tab-content space-y-4">
+                 <h2 class="text-2xl font-bold text-white px-2">Event Agenda</h2>
+                 <!-- Agenda Item 1 -->
+                <div class="bg-slate-800 rounded-lg p-4 border-l-4 border-blue-500">
+                    <p class="text-sm text-slate-400">10:00 AM - 11:00 AM • Main Hall A</p>
+                    <h3 class="font-bold text-white mt-1">Keynote: The Future of AI</h3>
+                    <p class="text-sm text-slate-300">Dr. Evelyn Reed</p>
+                </div>
+                <!-- Agenda Item 2 -->
+                <div class="bg-slate-800 rounded-lg p-4 border-l-4 border-green-500">
+                    <p class="text-sm text-slate-400">11:00 AM - 12:30 PM • Garden Plaza</p>
+                    <h3 class="font-bold text-white mt-1">Networking Lunch</h3>
+                </div>
+                 <!-- Agenda Item 3 -->
+                <div class="bg-slate-800 rounded-lg p-4 border-l-4 border-purple-500">
+                    <p class="text-sm text-slate-400">12:30 PM - 1:30 PM • Room 201</p>
+                    <h3 class="font-bold text-white mt-1">Workshop: Scalable Cloud Architectures</h3>
+                    <p class="text-sm text-slate-300">Ben Carter</p>
+                </div>
+                 <!-- Agenda Item 4 -->
+                <div class="bg-slate-800 rounded-lg p-4 border-l-4 border-yellow-500">
+                    <p class="text-sm text-slate-400">1:30 PM - 2:30 PM • Room 202</p>
+                    <h3 class="font-bold text-white mt-1">Panel: The Ethics of Machine Learning</h3>
+                    <p class="text-sm text-slate-300">Various Speakers</p>
+                </div>
+            </div>
+
+            <!-- Speakers Tab Content -->
+            <div id="speakers" class="tab-content space-y-4">
+                <h2 class="text-2xl font-bold text-white px-2">Speakers</h2>
+                <!-- Speaker Card 1 -->
+                <div class="bg-slate-800 rounded-lg p-4 flex items-center space-x-4">
+                    <img src="https://placehold.co/80x80/2563eb/ffffff?text=ER" class="w-20 h-20 rounded-full flex-shrink-0" alt="Dr. Evelyn Reed">
+                    <div>
+                        <h3 class="font-bold text-lg text-white">Dr. Evelyn Reed</h3>
+                        <p class="text-blue-400 text-sm">Chief AI Scientist, QuantumLeap Inc.</p>
+                        <p class="text-slate-400 text-xs mt-1">Session: Keynote: The Future of AI</p>
+                    </div>
+                </div>
+                 <!-- Speaker Card 2 -->
+                 <div class="bg-slate-800 rounded-lg p-4 flex items-center space-x-4">
+                    <img src="https://placehold.co/80x80/16a34a/ffffff?text=BC" class="w-20 h-20 rounded-full flex-shrink-0" alt="Ben Carter">
+                    <div>
+                        <h3 class="font-bold text-lg text-white">Ben Carter</h3>
+                        <p class="text-green-400 text-sm">Principal Engineer, Nimbus Cloud</p>
+                        <p class="text-slate-400 text-xs mt-1">Session: Workshop: Scalable Cloud Architectures</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Tab Content -->
+            <div id="map" class="tab-content">
+                 <h2 class="text-2xl font-bold text-white px-2 mb-4">Venue Map</h2>
+                 <div class="bg-slate-800 rounded-lg p-4">
+                     <!-- Placeholder for an interactive map -->
+                     <img src="https://placehold.co/800x600/1e293b/475569?text=Interactive+Venue+Map" class="w-full h-auto rounded-md" alt="Venue Map">
+                 </div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="sticky bottom-0 bg-slate-800 border-t border-slate-700 flex justify-around p-2">
+            <button class="nav-link active flex-1 text-center text-slate-400 hover:text-blue-500 transition-colors" data-tab="home">
+                <i class="fas fa-home text-2xl"></i>
+                <span class="block text-xs font-medium">Home</span>
+            </button>
+            <button class="nav-link flex-1 text-center text-slate-400 hover:text-blue-500 transition-colors" data-tab="agenda">
+                <i class="fas fa-calendar-alt text-2xl"></i>
+                <span class="block text-xs font-medium">Agenda</span>
+            </button>
+            <button class="nav-link flex-1 text-center text-slate-400 hover:text-blue-500 transition-colors" data-tab="speakers">
+                <i class="fas fa-microphone-alt text-2xl"></i>
+                <span class="block text-xs font-medium">Speakers</span>
+            </button>
+            <button class="nav-link flex-1 text-center text-slate-400 hover:text-blue-500 transition-colors" data-tab="map">
+                <i class="fas fa-map text-2xl"></i>
+                <span class="block text-xs font-medium">Map</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Wi-Fi Modal -->
+    <div id="wifi-modal" class="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-slate-800 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl border border-slate-700">
+            <h2 class="text-2xl font-bold text-white mb-4">Wi-Fi Details</h2>
+            <div class="space-y-2 text-left">
+                <p class="text-slate-400">Network Name:</p>
+                <p class="bg-slate-700 p-2 rounded-md font-mono text-white">InnovateX_Guest</p>
+                <p class="text-slate-400 mt-3">Password:</p>
+                <p class="bg-slate-700 p-2 rounded-md font-mono text-white">innovate2025</p>
+            </div>
+            <button id="close-modal-btn" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors w-full">Close</button>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const navLinkBtns = document.querySelectorAll('.nav-link-btn');
+            
+            const wifiModal = document.getElementById('wifi-modal');
+            const wifiBtn = document.getElementById('wifi-btn');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            function switchTab(tabId) {
+                // Handle tab content visibility
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(tabId).classList.add('active');
+
+                // Handle nav link active state
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.tab === tabId) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Scroll to top of the page on tab switch
+                window.scrollTo(0, 0);
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const tabId = link.dataset.tab;
+                    switchTab(tabId);
+                });
+            });
+            
+            navLinkBtns.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const tabId = button.dataset.tab;
+                    switchTab(tabId);
+                });
+            });
+
+            // Modal functionality
+            wifiBtn.addEventListener('click', () => {
+                wifiModal.classList.remove('hidden');
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                wifiModal.classList.add('hidden');
+            });
+            
+            // Close modal on outside click
+            wifiModal.addEventListener('click', (e) => {
+                if (e.target === wifiModal) {
+                    wifiModal.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
 
 <%- include("partials/footer") -%>
